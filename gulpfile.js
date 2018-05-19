@@ -72,22 +72,25 @@ gulp.task('js', () => {
 		.pipe(eslint())
         .pipe(babel())
 		.pipe(sourcemaps.init())
-		.pipe(concat('site.min.js'))
 		.pipe(uglify())
+		.pipe(concat('site.min.js'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.jsDist))
 })
 
 gulp.task('js:vendor', () => {
-	return gulp.src(paths.jsSrcVendor)
-		.pipe(changed(paths.jsDistVendor))
-		.pipe(gulp.dest(paths.jsDistVendor))
-		.pipe(babel())
-		.pipe(sourcemaps.init())
-		.pipe(concat('vendor.min.js'))
-		.pipe(uglify())
-		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(paths.jsDist))
+	return gulp.src([
+		'node_modules/',
+		paths.jsSrcVendor
+	])
+	.pipe(changed(paths.jsDistVendor))
+	.pipe(gulp.dest(paths.jsDistVendor))
+	.pipe(babel())
+	.pipe(sourcemaps.init())
+	//.pipe(uglify())
+	.pipe(concat('vendor.min.js'))
+	.pipe(sourcemaps.write('.'))
+	.pipe(gulp.dest(paths.jsDistVendor))
 })
 
 gulp.task('image:copy', () => {

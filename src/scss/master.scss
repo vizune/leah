@@ -1,13 +1,20 @@
+// VENDOR
 @import "breakpoint-sass/stylesheets/breakpoint";
+@import "flickity/css/flickity";
 @import "vendor/baguetteBox";
-@import "vendor/flickity";
 
+// WEB FONT
 @import "partials/fonts";
 
+// SETTINGS / VARIABLES
 @import "partials/breakpoints";
 @import "partials/settings";
 
+// BASE / LAYOUT
 @import "normalize.css/normalize";
 @import "partials/base";
 @import "partials/utilities";
 @import "partials/layout";
+
+// COMPONENTS
+@import "partials/components";
