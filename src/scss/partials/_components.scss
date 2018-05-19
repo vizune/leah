@@ -1,0 +1,52 @@
+.Intro {
+    padding: 4.69rem 0;
+    line-height: 2;
+
+    @include breakpoint($tablet) {
+        padding: 7.5rem 0;
+    }
+}
+
+.Social {
+    padding-bottom: 3.13rem;
+    
+    &-icon {
+        display: inline-block;
+        text-align: center;
+    }
+
+    &-link {
+        display: block;
+        transition: transform .3s ease;
+
+        &:hover {
+            transform: translateY(-10px) scale(1.1);
+            transform-origin: center center;
+            transition: transform .3s ease;
+        }
+    }
+}
+
+.Contact {
+    padding: 4.688rem 0;
+
+    @include breakpoint($desktop) {
+        padding: 9.38rem 0;
+    }
+
+    p {
+        @include breakpoint($tablet) {
+            margin-bottom: 1.56rem;
+        }
+    }
+}
+
+.Logo {
+    padding: 3.125rem 0;
+
+    @include breakpoint($tablet) {
+        padding: 4.688rem 0;
+    }
+    
+
+}
