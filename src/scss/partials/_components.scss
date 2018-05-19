@@ -1,15 +1,49 @@
+.Title {
+    padding: 3.125rem 0;
+    text-transform: uppercase;
+
+    @include breakpoint($desktop) {
+        padding: 6.25rem 0;
+    }
+
+    &-heading {
+        display: inline-block;
+        font-weight: $fw-base;
+        margin: 0 0 .67rem;
+        border-bottom: 2px solid $black;
+        letter-spacing: 5px;
+        padding-left: 5px;
+        transition: padding .3s ease;
+
+        &:hover {
+            padding-left: calc(2rem + 5px);
+            padding-right: 2rem;
+        }
+    }
+
+    &-slogan {
+        font-size: 0.88rem;
+        margin: 0 -4px 0 0;
+        letter-spacing: 4px;
+    }
+}
+
 .Intro {
     padding: 4.69rem 0;
     line-height: 2;
 
-    @include breakpoint($tablet) {
+    @include breakpoint($desktop) {
         padding: 7.5rem 0;
+    }
+
+    p:last-of-type {
+        margin-bottom: 0;
     }
 }
 
 .Social {
-    padding-bottom: 3.13rem;
-    
+    padding-bottom: 3.125rem;
+
     &-icon {
         display: inline-block;
         text-align: center;
