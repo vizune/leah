@@ -1,0 +1,46 @@
+.Wrapper {
+    width: 100%;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.Row {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 100%;
+    margin: 0 -1.5rem;
+}
+
+.Cell {
+    flex-grow: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    flex-basis: 100%;
+
+    @include breakpoint($desktop) {
+
+        &--2 {
+            flex-basis: 50%;
+        }
+    
+        &--3 {
+            flex-basis:33.33333%
+        }
+    
+        &--4 {
+            flex-basis:25%
+        }
+    
+        &--5 {
+            flex-basis: 20%;
+        }
+    }
+
+
+}

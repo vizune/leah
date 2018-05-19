@@ -17,12 +17,12 @@ const uglify = require('gulp-uglify')
 const sourcemaps = require('gulp-sourcemaps')
 
 const paths = {
-	src: 'src/',
+	src: 'src/**/*',
 	dist: 'dist/',
 	html: 'src/**/*.html',
 	jsSrc: 'src/js/**/*.js',
 	jsSrcVendor: 'src/js/vendor/**/*.js',
-	scss: 'src/scss/**/*.scss',
+	scss: 'src/scss/**/{*.scss,_*.scss}',
 	css: 'dist/css',
 	jsDist: 'dist/js',
 	jsDistVendor: 'dist/js/vendor',
@@ -55,7 +55,9 @@ gulp.task('css', () => {
 	return gulp.src(paths.scss)
 		.pipe(changed(paths.css))
 		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({
+			includePaths: ['node_modules']
+		  }).on('error', sass.logError))
 		.pipe(concat('style.min.css'))
 		.pipe(postcss([
 			autoprefixer({browsers: ['last 2 versions', "safari >= 7"]}),
@@ -70,7 +72,7 @@ gulp.task('js', () => {
 		.pipe(eslint())
         .pipe(babel())
 		.pipe(sourcemaps.init())
-		.pipe(concat('scripts.min.js'))
+		.pipe(concat('site.min.js'))
 		.pipe(uglify())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.jsDist))
@@ -80,6 +82,12 @@ gulp.task('js:vendor', () => {
 	return gulp.src(paths.jsSrcVendor)
 		.pipe(changed(paths.jsDistVendor))
 		.pipe(gulp.dest(paths.jsDistVendor))
+		.pipe(babel())
+		.pipe(sourcemaps.init())
+		.pipe(concat('vendor.min.js'))
+		.pipe(uglify())
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(paths.jsDist))
 })
 
 gulp.task('image:copy', () => {

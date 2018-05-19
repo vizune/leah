@@ -1,0 +1,52 @@
+:root {
+    font-size: $fs-base;
+  }
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+   
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: $white;
+    color: $black;
+    font-family: $ff-body;
+    font-weight: $fw-base;
+    line-height: $lh-base;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+::selection {
+    color: $white; 
+    background: $black;
+}
+
+hr {
+    border-bottom: 1px solid #000;
+    border-top: none;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: $black;
+    text-decoration: none;
+    border-bottom: 1px solid $black;
+}
