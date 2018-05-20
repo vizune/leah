@@ -28,6 +28,39 @@
     }
 }
 
+@keyframes bounce {
+	0%, 30%, 100% {
+        transform: translateX(-50%) translateY(0);
+  }
+	60% {
+        transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+ .Arrow {
+     position: absolute;
+     margin: 2rem 0 5px;
+     transform: translateX(-50%);
+     left: 50%;
+     cursor: pointer;
+
+     &::after {
+        content: '';
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-top: 2px solid $black;
+        border-right: 2px solid $black;
+        -moz-transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+     }
+
+     &:hover {
+        animation: bounce .8s;
+     }
+ }
+
 .Carousel {
     &-item {
         width: 100%;
@@ -106,7 +139,7 @@
                 opacity: 0;
                 z-index: -1;
                 transform: scaleX(0);
-                transition: all .3s ease;
+                transition: all .4s ease;
             }
 
             &::after {
