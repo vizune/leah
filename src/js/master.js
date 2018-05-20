@@ -13,10 +13,8 @@ function HeroCarousel() {
 
 function Gallery() {
   baguetteBox.run('.Gallery', {
-    //fullScreen: true
     animation: "fadeIn"
   });
-  baguetteBox.show(index, gallery[0]);
 }
 
 window.addEventListener("load", function () {
