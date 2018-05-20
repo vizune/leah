@@ -103,6 +103,14 @@
     }
 }
 
+#baguetteBox-overlay .full-image figcaption {
+    font-family: $ff-body;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: $fw-base;
+    color: $white;
+}
+
 .Contact {
     padding: 4.688rem 0;
 
