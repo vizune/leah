@@ -24,8 +24,8 @@ const paths = {
 	jsSrcVendor: 'src/js/vendor/**/*.js',
 	scss: 'src/scss/**/{*.scss,_*.scss}',
 	css: 'dist/css',
-	jsDist: 'dist/js',
-	jsDistVendor: 'dist/js/vendor',
+	jsDist: 'dist/scripts',
+	jsDistVendor: 'dist/scripts/vendor',
 }
 
 gulp.task('build', (callback) => {
@@ -68,11 +68,18 @@ gulp.task('css', () => {
 })
 
 gulp.task('js', () => {
-	return gulp.src(['!src/js/vendor/**/*.js', paths.jsSrc])
+	return gulp.src(['!src/js/vendor/**/*.js', '!node_modules/**', paths.jsSrc])
 		.pipe(eslint())
+		.pipe(eslint.result(result => {
+			console.log(`ESLint result: ${result.filePath}`);
+			console.log(`# Messages: ${result.messages.length}`);
+			console.log(`# Warnings: ${result.warningCount}`);
+			console.log(`# Errors: ${result.errorCount}`);
+		}))
         .pipe(babel())
 		.pipe(sourcemaps.init())
 		.pipe(uglify())
+		.on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
 		.pipe(concat('site.min.js'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.jsDist))
@@ -83,14 +90,13 @@ gulp.task('js:vendor', () => {
 		'node_modules/',
 		paths.jsSrcVendor
 	])
-	.pipe(changed(paths.jsDistVendor))
-	.pipe(gulp.dest(paths.jsDistVendor))
+	.pipe(changed(paths.jsDist))
 	.pipe(babel())
 	.pipe(sourcemaps.init())
 	//.pipe(uglify())
 	.pipe(concat('vendor.min.js'))
 	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest(paths.jsDistVendor))
+	.pipe(gulp.dest(paths.jsDist))
 })
 
 gulp.task('image:copy', () => {

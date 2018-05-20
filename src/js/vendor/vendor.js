@@ -1,1 +1,1 @@
-import 'flickity';
+//import 'flickity';
