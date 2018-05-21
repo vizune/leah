@@ -1,9 +1,26 @@
+.Banner {
+    &.is-active {
+        @include breakpoint($desktop) {
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: space-between;
+        }
+    }
+    
+}
+
 .Title {
     padding: 3.125rem 0;
     text-transform: uppercase;
 
+    .Banner.is-active & {
+        flex: 1 0 auto;
+    }
+
     @include breakpoint($desktop) {
-        padding: 6.25rem 0;
+        padding: 6.25rem 0 3.125rem;
     }
 
     &-heading {
@@ -30,38 +47,52 @@
 
 @keyframes bounce {
 	0%, 30%, 100% {
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
   }
 	60% {
-        transform: translateX(-50%) translateY(-10px);
+        transform: translateY(-10px);
   }
 }
 
  .Arrow {
-     position: absolute;
-     margin: 2rem 0 5px;
-     transform: translateX(-50%);
-     left: 50%;
-     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 5px;
 
-     &::after {
-        content: '';
-        display: inline-block;
-        width: 1.5rem;
-        height: 1.5rem;
-        border-top: 2px solid $black;
-        border-right: 2px solid $black;
-        -moz-transform: rotate(135deg);
-        -webkit-transform: rotate(135deg);
-        transform: rotate(135deg);
-     }
-
-     &:hover {
-        animation: bounce .8s;
+     &-icon {
+        cursor: pointer;
+        display: block;
+        padding: 1rem;
+   
+        &::after {
+           content: '';
+           display: inline-block;
+           width: 1.5rem;
+           height: 1.5rem;
+           border-top: 2px solid $black;
+           border-right: 2px solid $black;
+           -moz-transform: rotate(135deg);
+           -webkit-transform: rotate(135deg);
+           transform: rotate(135deg);
+           transform-origin: center center;
+        }
+   
+        &:hover {
+           animation: bounce .8s;
+        }
      }
  }
 
+
+ .Hero {
+    .Banner.is-active & {
+        flex: 1 1 100%;
+        align-self: flex-end;
+    }
+ }
+
 .Carousel {
+
     &-item {
         width: 100%;
         opacity: 0;

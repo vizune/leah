@@ -76,11 +76,13 @@ gulp.task('js', () => {
 			console.log(`# Warnings: ${result.warningCount}`);
 			console.log(`# Errors: ${result.errorCount}`);
 		}))
-        .pipe(babel())
 		.pipe(sourcemaps.init())
-		.pipe(uglify())
-		.on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+        .pipe(babel({
+            presets: ['env']
+		}))
 		.pipe(concat('site.min.js'))
+		.pipe(uglify())
+			.on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.jsDist))
 })
@@ -91,10 +93,10 @@ gulp.task('js:vendor', () => {
 		paths.jsSrcVendor
 	])
 	.pipe(changed(paths.jsDist))
-	.pipe(babel())
 	.pipe(sourcemaps.init())
-	//.pipe(uglify())
+	//.pipe(babel()
 	.pipe(concat('vendor.min.js'))
+	//.pipe(uglify())
 	.pipe(sourcemaps.write('.'))
 	.pipe(gulp.dest(paths.jsDist))
 })

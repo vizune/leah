@@ -8,14 +8,16 @@
     "url": "git://github.com/vizune/leah.git"
   },
   "devDependencies": {
+    "animejs": "2.2.0",
     "autoprefixer": "8.5.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.18.13",
     "cssnano": "^3.10.0",
     "eslint-config-defaults": "^9.0.0",
+    "flickity": "2.1.1",
     "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0",
+    "gulp-babel": "^7.0.1",
     "gulp-changed": "^3.1.0",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^4.0.0",
@@ -24,6 +26,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "jshint": "^2.9.5",
+    "normalize.css": "8.0.0",
     "run-sequence": "^2.2.0"
   },
   "dependencies": {}
