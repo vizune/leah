@@ -19,7 +19,7 @@
     const tween = anime({
       targets: pos,
       scrollTop: o,
-      duration: 200,
+      duration: 400,
       easing: 'easeInCubic',
       autoplay: false,
       update: () => {
@@ -53,7 +53,7 @@
     const hero = document.querySelector("#Hero");
 
     arrow.addEventListener("click", function() {
-      banner.classList.remove("is-active");
+      //banner.classList.remove("is-active");
       //scrollTo(this.target, -this.offset);
       scrollTo(hero);
     });
