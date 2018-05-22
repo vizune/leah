@@ -19,8 +19,8 @@
     const tween = anime({
       targets: pos,
       scrollTop: o,
-      duration: 400,
-      easing: 'easeInCubic',
+      duration: 800,
+      easing: 'easeOutQuad',
       autoplay: false,
       update: () => {
         body.scrollTop = pos.scrollTop
@@ -37,7 +37,8 @@
         cellAlign: "left",
         prevNextButtons: false,
         wrapAround: true,
-        autoPlay: 4000
+        pageDots: false,
+        autoPlay: 3500
       });
   }
 
@@ -50,12 +51,11 @@
   function Scroll() {
     const arrow = document.querySelector(".Arrow");
     const banner = document.querySelector(".Banner");
-    const hero = document.querySelector("#Hero");
+    const content = document.querySelector("#Content");
 
     arrow.addEventListener("click", function() {
-      //banner.classList.remove("is-active");
       //scrollTo(this.target, -this.offset);
-      scrollTo(hero);
+      scrollTo(content);
     });
   }
 

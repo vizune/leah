@@ -1,26 +1,20 @@
 .Banner {
-    &.is-active {
-        @include breakpoint($desktop) {
-            height: 100vh;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            transition: all .2s ease-in;
-        }
+    @include breakpoint($desktop) {
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transition: all .2s ease-in;
     }
-    
 }
 
 .Title {
     padding: 3.125rem 0;
     text-transform: uppercase;
 
-    .Banner.is-active & {
-        flex: 1 0 auto;
-    }
-
     @include breakpoint($desktop) {
         padding: 6.25rem 0 3.125rem;
+        flex: 1 0 auto;
     }
 
     &-heading {
@@ -55,9 +49,12 @@
 }
 
  .Arrow {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0 5px;
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+    z-index: 10;
 
      &-icon {
         cursor: pointer;
@@ -69,8 +66,8 @@
            display: inline-block;
            width: 1.5rem;
            height: 1.5rem;
-           border-top: 2px solid $black;
-           border-right: 2px solid $black;
+           border-top: 2px solid $white;
+           border-right: 2px solid $white;
            -moz-transform: rotate(135deg);
            -webkit-transform: rotate(135deg);
            transform: rotate(135deg);
@@ -81,11 +78,29 @@
            animation: bounce .8s;
         }
      }
+
+     @include breakpoint($desktop) {
+         display: block;
+     }
+ }
+
+ .Content {
+    @include breakpoint($desktop) {
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transition: all .2s ease-in;
+        align-content: space-around;
+        justify-content: center;
+    }
  }
 
 
  .Hero {
-    .Banner.is-active & {
+     position: relative;
+
+    .Banner & {
         flex: 1 1 100%;
         align-self: flex-end;
     }
@@ -99,7 +114,6 @@
         visibility: hidden;
         left: 0 !important;
         text-align: center;
-        //transform: translateY(-0%) translateX(0) scale(.95);
         z-index: 0;
         transition-delay: 2;
         transition: opacity .7s ease-in-out, visibility .7s ease-in-out, transform .7s ease-in-out;
@@ -107,9 +121,7 @@
         &.is-selected {
             opacity: 1;
             visibility: visible;
-            //transform: translateY(0) translateX(0) scale(1);
             z-index: 2;
-            //transition-delay: 2;
             transition: opacity .7s ease-in-out, visibility .7s ease-in-out, transform .7s ease-in-out;
         }
     }
@@ -117,14 +129,19 @@
 
 .flickity-slider {
     transform: none !important;
-  }
+}
+
+.flickity-page-dots {
+    bottom: -55px;
+}
 
 .Intro {
     padding: 4.69rem 0;
     line-height: 2;
 
     @include breakpoint($desktop) {
-        padding: 7.5rem 0;
+        padding-top: 12.5%;
+        padding-bottom: 0;
     }
 
     p:last-of-type {
@@ -133,7 +150,13 @@
 }
 
 .Social {
-    padding-bottom: 3.125rem;
+    padding-bottom: 4rem;
+
+    @include breakpoint($desktop) {
+        padding-bottom: 3.125rem;
+        padding-top: 3.125rem;
+        flex-basis: 100%;
+    }
 
     &-icon {
         display: inline-block;
