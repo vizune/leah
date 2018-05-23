@@ -23,16 +23,16 @@
     padding-right: 1.5rem;
     flex-basis: 100%;
 
+    &--25 {
+        _:-ms-fullscreen, :root & {
+            -ms-flex: 1 1 0%;
+          }
+          flex-basis: 50%;
+    }
+
     @include breakpoint($tablet) {
         &--66 {
             flex-basis: 88.88888%;
-        }
-        
-        &--25 {
-            _:-ms-fullscreen, :root & {
-                -ms-flex: 1 1 0%
-              }
-              flex-basis:50%
         }
     }
 
@@ -52,9 +52,9 @@
     
         &--25 {
             _:-ms-fullscreen, :root & {
-                -ms-flex: 1 1 0%
+                -ms-flex: 1 1 0%;
               }
-              flex-basis:25%
+              flex-basis:25%;
         }
     
         &--20 {
