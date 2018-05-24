@@ -1,20 +1,18 @@
 .Banner {
-    @include breakpoint($desktop) {
-        height: 100vh;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        transition: all .2s ease-in;
-    }
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: all .2s ease-in;
 }
 
 .Title {
     padding: 3.125rem 0;
     text-transform: uppercase;
+    flex: 1 0 auto;
 
-    @include breakpoint($desktop) {
+    @include breakpoint($tablet) {
         padding: 6.25rem 0 3.125rem;
-        flex: 1 0 auto;
     }
 
     &-heading {
@@ -25,10 +23,13 @@
         letter-spacing: 5px;
         padding-left: 5px;
         transition: padding .3s ease;
+        
 
         &:hover {
-            padding-left: calc(2rem + 5px);
-            padding-right: 2rem;
+            @include breakpoint($desktop) {
+                padding-left: calc(2rem + 5px);
+                padding-right: 2rem;
+            }
         }
     }
 
@@ -49,11 +50,10 @@
 }
 
  .Arrow {
-    display: none;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 1rem;
+    bottom: 2rem;
     z-index: 10;
 
      &-icon {
@@ -78,24 +78,18 @@
            animation: bounce .8s;
         }
      }
-
-     @include breakpoint($desktop) {
-         display: block;
-     }
  }
 
+ 
  .Content {
-    @include breakpoint($desktop) {
-        height: 100vh;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        transition: all .2s ease-in;
-        align-content: space-around;
-        justify-content: center;
-    }
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: all .2s ease-in;
+    align-content: space-around;
+    justify-content: center;
  }
-
 
  .Hero {
      position: relative;
@@ -168,11 +162,16 @@
 }
 
 .Intro {
-    padding: 4.69rem 0;
-    line-height: 2;
+    line-height: 1.7;
+    font-size: 12px;
+    padding: 2.5rem 0;
+
+    @include breakpoint($tablet) {
+        padding: 4.69rem 0;
+    }
 
     @include breakpoint($desktop) {
-        padding-top: 12.5%;
+        padding: 6rem 0;
         padding-bottom: 0;
     }
 
@@ -182,11 +181,8 @@
 }
 
 .Social {
-    padding-bottom: 4rem;
 
     @include breakpoint($desktop) {
-        padding-bottom: 3.125rem;
-        padding-top: 3.125rem;
         flex-basis: 100%;
     }
 
@@ -205,12 +201,17 @@
             transition: transform .3s ease;
         }
     }
+
+    &-icon {
+        transform: scale(.8);
+    }
 }
 
 .Gallery {
     &-item {
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 10px;
+        padding:0 5px;
 
         a {
             display: inline-block;
@@ -252,11 +253,10 @@
             margin-bottom: 0;
         }
 
-        
-
         @include breakpoint($desktop) {
             margin-bottom: 0;
         }
+
     }
 }
 
@@ -298,6 +298,6 @@
     padding: 3.125rem 0;
 
     @include breakpoint($tablet) {
-        padding: 4.688rem 0;
+        padding: 4.5rem 0;
     }
 }
