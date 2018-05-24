@@ -4,6 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     transition: all .2s ease-in;
+    align-content: space-between;
 }
 
 .Title {
@@ -82,13 +83,15 @@
 
  
  .Content {
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    transition: all .2s ease-in;
-    align-content: space-around;
-    justify-content: center;
+     @include breakpoint($desktop) {
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transition: all .2s ease-in;
+        align-content: space-around;
+        justify-content: center;
+     }
  }
 
  .Hero {
@@ -171,7 +174,6 @@
     }
 
     @include breakpoint($desktop) {
-        padding: 6rem 0;
         padding-bottom: 0;
     }
 
@@ -281,15 +283,18 @@
 }
 
 .Contact {
-    padding: 4.688rem 0;
+    padding: 4rem 0;
 
     @include breakpoint($desktop) {
-        padding: 9.38rem 0;
+        padding: 5rem 0 6rem 0;
     }
 
     p {
+        font-size: 14px;
+        
         @include breakpoint($tablet) {
-            margin-bottom: 1.56rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
         }
     }
 }
@@ -298,6 +303,6 @@
     padding: 3.125rem 0;
 
     @include breakpoint($tablet) {
-        padding: 4.5rem 0;
+        padding: 6% 0;
     }
 }

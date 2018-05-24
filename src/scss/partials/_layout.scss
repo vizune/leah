@@ -32,16 +32,19 @@
 
     @include breakpoint($tablet) {
         &--66 {
-            flex-basis: 88.88888%;
+            flex-basis: 66.66666%;
+         }
+
+        &--25 {
+            _:-ms-fullscreen, :root & {
+                -ms-flex: 1 1 0%;
+              }
+              flex-basis:25%;
         }
     }
 
     @include breakpoint($desktop) {
-
-        &--66 {
-            flex-basis: 66.66666%;
-         }
-
+        
         &--50 {
            flex-basis: 50%;
         }
@@ -50,12 +53,6 @@
             flex-basis:33.33333%
         }
     
-        &--25 {
-            _:-ms-fullscreen, :root & {
-                -ms-flex: 1 1 0%;
-              }
-              flex-basis:25%;
-        }
     
         &--20 {
             flex-basis: 20%;
