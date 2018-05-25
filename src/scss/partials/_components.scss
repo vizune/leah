@@ -1,19 +1,27 @@
 .Banner {
     height: 100vh;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    transition: all .2s ease-in;
-    align-content: space-between;
+    flex-direction: column;
+
+    @include breakpoint($tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-between;
+    }
 }
 
 .Title {
     padding: 3.125rem 0;
     text-transform: uppercase;
-    flex: 1 0 auto;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    
 
     @include breakpoint($tablet) {
         padding: 6.25rem 0 3.125rem;
+        flex: 1 0 auto;
+        display: block;
     }
 
     &-heading {
@@ -98,8 +106,12 @@
      position: relative;
 
     .Banner & {
-        flex: 1 1 100%;
-        align-self: flex-end;
+        flex: 1;
+
+        @include breakpoint($tablet) {
+            flex: 1 1 100%;
+            align-self: flex-end;
+        }
     }
  }
 
@@ -198,7 +210,8 @@
         transition: transform .3s ease;
 
         &:hover {
-            transform: translateY(-10px) scale(1.1);
+            //transform: translateY(-10px) scale(1.1);
+            transform: translateY(-10px) scale(1);
             transform-origin: center center;
             transition: transform .3s ease;
         }
