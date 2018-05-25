@@ -19,9 +19,9 @@
 
 .Cell {
     flex-grow: 0;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
     flex-basis: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     &--25 {
         _:-ms-fullscreen, :root & {
@@ -31,6 +31,9 @@
     }
 
     @include breakpoint($tablet) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+
         &--66 {
             flex-basis: 66.66666%;
          }
