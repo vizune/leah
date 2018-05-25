@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
 
-    @include breakpoint($tablet) {
+    @include breakpoint($desktop) {
         flex-direction: row;
         flex-wrap: wrap;
         align-content: space-between;
@@ -18,7 +18,7 @@
     align-items: center;
     
 
-    @include breakpoint($tablet) {
+    @include breakpoint($desktop) {
         padding: 6.25rem 0 3.125rem;
         flex: 1 0 auto;
         display: block;
@@ -63,8 +63,12 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 1.25rem;
+    bottom: 1rem;
     z-index: 10;
+
+    @include breakpoint($desktop) {
+        bottom: 1.25rem;
+    }
 
      &-icon {
         cursor: pointer;
@@ -109,10 +113,15 @@
     .Banner & {
         flex: 1;
 
-        @include breakpoint($tablet) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        @include breakpoint($desktop) {
             flex: 1 1 100%;
             align-self: flex-end;
         }
+
     }
  }
 
@@ -139,7 +148,7 @@
     &-image {
         @include breakpoint($touch-all) {
             position: relative;
-            min-height: 320px;
+            min-height: 250px;
 
             img {
                 position: absolute;
@@ -187,7 +196,7 @@
     }
 
     @include breakpoint($desktop) {
-        padding-bottom: 0;
+        //padding-bottom: 0;
     }
 
     p:last-of-type {
@@ -219,11 +228,11 @@
     }
 
     &-icon {
-        transform: scale(.8);
+        transform: scale(.85);
         transition: transform .3s ease;
 
         .Social-link:hover & {
-            transform: scale(.9);
+            transform: scale(1);
         }
     }
 }
@@ -307,7 +316,7 @@
     padding: 4rem 0;
 
     @include breakpoint($desktop) {
-        padding: 5rem 0 6rem 0;
+        padding: 3% 0 6%;
     }
 
     p {
@@ -325,6 +334,6 @@
     padding: 3.125rem 0;
 
     @include breakpoint($tablet) {
-        padding: 6% 0;
+        padding: 5% 0;
     }
 }
