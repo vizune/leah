@@ -2,6 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 
     @include breakpoint($desktop) {
         flex-direction: row;
@@ -11,7 +12,7 @@
 }
 
 .Title {
-    padding: 3.125rem 0;
+    //padding: 3.125rem 0;
     text-transform: uppercase;
     display: flex;
     flex: 1;
@@ -68,6 +69,10 @@
 
     @include breakpoint($desktop) {
         bottom: 1.25rem;
+    }
+
+    @include breakpoint(1921) {
+        bottom: 5%;
     }
 
      &-icon {
@@ -146,32 +151,39 @@
     }
 
     &-image {
-        @include breakpoint($touch-all) {
-            position: relative;
-            min-height: 250px;
+        position: relative;
+        min-height: 250px;
 
-            img {
+        @include breakpoint($tablet) {
+            position: relative;
+            min-height: 350px;
+        }
+
+
+        img {
+            @include breakpoint($touch-all) {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                min-width: 100%;
+                
                 min-height: 100%;
                 -webkit-transform: translate(-50%,-50%);
                 -ms-transform: translate(-50%,-50%);
                 transform: translate(-50%,-50%);
-                object-fit: cover;
+            }
+            min-width: 100%;
+            object-fit: cover;
 
-                &.position-right {
-                    object-position: center;
-                }
+            &.position-right {
+                object-position: center;
+            }
 
-                &.position-left {
-                    object-position: left;
-                }
+            &.position-left {
+                object-position: left;
+            }
 
-                &.position-right {
-                    object-position: right;
-                }
+            &.position-right {
+                object-position: right;
             }
         }
         
