@@ -343,9 +343,13 @@
 }
 
 .Logo {
-    padding: 3.125rem 0;
+    padding: 2rem 0;
 
     @include breakpoint($tablet) {
+        padding: 3.125rem 0;
+    }
+
+    @include breakpoint($desktop) {
         padding: 5% 0;
     }
 }
